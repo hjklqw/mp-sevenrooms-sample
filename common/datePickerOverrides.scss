@@ -1,0 +1,53 @@
+@use 'common/vars' as *;
+
+.react-datepicker {
+  width: 100%;
+  border: none;
+
+  .react-datepicker__header,
+  & > button {
+    display: none;
+  }
+
+  .react-datepicker__month-container {
+    width: 100%;
+    float: none;
+  }
+
+  .react-datepicker__week {
+    display: flex;
+  }
+
+  .react-datepicker__day {
+    flex: 1;
+    width: unset;
+    margin: 0;
+    padding: 1rem 0;
+
+    &:hover:not(.react-datepicker__day--disabled) {
+      border-radius: 0;
+      background-color: $dark;
+      color: $white;
+    }
+  }
+
+  .react-datepicker__day--outside-month {
+    color: $accent;
+    opacity: 0.5;
+  }
+
+  .react-datepicker__day--selected {
+    border-radius: 0;
+    background-color: $black;
+  }
+
+  .react-datepicker__day--keyboard-selected {
+    background: unset;
+    border-radius: unset;
+    color: unset;
+  }
+
+  .react-datepicker__day--disabled {
+    color: $light;
+  }
+}

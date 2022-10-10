@@ -1,0 +1,133 @@
+@use 'common/vars' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+
+  @media all and (max-width: 600px) {
+    padding-top: 0;
+  }
+}
+
+.widget {
+  width: max(600px, 50vw);
+  max-width: 800px;
+  background: $white;
+  text-align: center;
+}
+
+.selectedDateTime {
+  background: $black;
+  color: $white;
+  padding: 0.5rem 1rem;
+  position: relative;
+
+  button {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-55%);
+    cursor: pointer;
+    width: 3rem;
+    height: 100%;
+    background: none;
+    border: none;
+    color: $white;
+  }
+
+  span {
+    font-size: 0.8rem;
+  }
+}
+
+.instructions {
+  padding: 1.5rem;
+}
+
+.timeInfo {
+  background: $selectionBG;
+  display: flex;
+
+  & > div {
+    flex: 1;
+    padding: 1rem 2rem;
+
+    span {
+      display: block;
+    }
+
+    .time {
+      font-size: 2.5rem;
+      line-height: 1.2em;
+
+      .date {
+        font-size: 1.3rem;
+        line-height: 1.2em;
+      }
+    }
+
+    .category {
+      margin-bottom: 1rem;
+    }
+
+    .notes {
+      font-size: 0.8rem;
+      color: $dark;
+    }
+  }
+
+  button {
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  @media all and (max-width: 550px) {
+    flex-direction: column;
+  }
+}
+
+.otherTimes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 0.3rem;
+  margin: 0.3rem;
+  background: $selectionBG;
+
+  button {
+    min-height: 70.4px;
+  }
+
+  button:not(:hover) {
+    background: $dark;
+  }
+
+  button.taken {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover {
+      letter-spacing: unset;
+      background: $dark;
+    }
+  }
+}
+
+.otherDates {
+  background: $selectionBG;
+
+  & > div {
+    padding: 1rem 0;
+    border-bottom: 1px dashed $light;
+  }
+}
